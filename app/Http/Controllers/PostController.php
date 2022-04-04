@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
-use Carbon\Carbon;
 
 class PostController extends Controller
 {
@@ -18,7 +17,7 @@ class PostController extends Controller
         $posts = Post::all();
         $data = [ 'posts' => $posts ];
 
-        return view('pages.home', $data);
+        return view('pages.index', $data);
     }
 
     /**
@@ -74,7 +73,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view('pages.edit', compact('post'));
     }
 
     /**
@@ -86,7 +86,12 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::find($id);
+        $post -> title = $request->title;
+        $post -> description = $request->description;
+        $post->save();
+        return redirect()->route('posts.edit', $id)->with('message', 'Post updated successfuly');
+        
     }
 
     /**

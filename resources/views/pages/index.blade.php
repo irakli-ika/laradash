@@ -4,9 +4,12 @@
 @if (session()->has('message'))
     <div class="absolute top-[50px] left-1/2 -translate-x-1/2 bg-green-100 rounded-lg py-5 px-6 mb-4 text-base text-green-700 mb-3" role="alert">
         {{ session()->get('message') }}
-    </div>  
+    </div>
 @endif
     <div class="grid grid-cols-3 gap-5 mx-auto">
+        @if (count($posts) == 0)
+            <h2 class="text-2xl">No post yet.</h2>
+        @endif
         @foreach ($posts as $post)
             <div class="block p-6 rounded-lg shadow-lg bg-white">
                 <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">{{ $post->title }}</h5>
@@ -24,7 +27,7 @@
                                     ease-in-out">More</a>
                     </div>
                     <div>
-                        <a href="{{ route('posts.show', $post) }}"
+                        <a href="{{ route('posts.edit', $post) }}"
                             class="inline-block px-6 py-2.5 bg-yellow-600
                                     text-white font-medium text-xs leading-tight
                                     uppercase rounded shadow-md hover:bg-yellow-700
@@ -33,7 +36,7 @@
                                     active:shadow-lg transition duration-150
                                     ease-in-out">Edit</a>
                     </div>
-                    <form action="{{ route('posts.destroy', $post) }}" method="post">
+                    <form action="{{ route('posts.destroy', $post) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this post?')">
                         @csrf
                         @method('delete')
                         <button type="submit"
