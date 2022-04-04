@@ -1,0 +1,10 @@
+<<<<<<< HEAD
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+=======
+.flex {
+    display: flex;
+    background: #000;
+}
+>>>>>>> 94a345bd1a316aacafb80d626eb8ef81262be504

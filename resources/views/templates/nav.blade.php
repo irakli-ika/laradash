@@ -1,0 +1,8 @@
+<ul class="flex justify-center mb-4">
+    <li class="mx-1">
+        <a href="{{ route('posts.index')}}" class="px-2 py-3 inline-block hover:text-sky-600 hover:underline">Home</a>
+    </li>
+    <li class="mx-1">
+        <a href="{{ route('posts.create') }}" class="px-2 py-3 inline-block hover:text-sky-600 hover:underline">Create Post</a>
+    </li>
+</ul>
