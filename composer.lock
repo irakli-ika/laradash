@@ -2631,13 +2631,6 @@
         },
         {
             "name": "ramsey/uuid",
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 68c85c27e6396ea33da3a607a29ebf08f27d842e
->>>>>>> 94a345bd1a316aacafb80d626eb8ef81262be504
             "version": "4.3.1",
             "source": {
                 "type": "git",
@@ -2646,56 +2639,18 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
                 "url": "https://api.github.com/repos/ramsey/uuid/zipball/fc9bb7fb5388691fd7373cd44dcb4d63bbcf24df",
                 "reference": "fc9bb7fb5388691fd7373cd44dcb4d63bbcf24df",
-=======
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/8505afd4fea63b81a85d3b7b53ac3cb8dc347c28",
-                "reference": "8505afd4fea63b81a85d3b7b53ac3cb8dc347c28",
-<<<<<<< HEAD
-=======
-            "version": "4.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ramsey/uuid.git",
-                "reference": "fc9bb7fb5388691fd7373cd44dcb4d63bbcf24df"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/fc9bb7fb5388691fd7373cd44dcb4d63bbcf24df",
-                "reference": "fc9bb7fb5388691fd7373cd44dcb4d63bbcf24df",
->>>>>>> cd5dff7 (From college)
-=======
->>>>>>> 68c85c27e6396ea33da3a607a29ebf08f27d842e
->>>>>>> 94a345bd1a316aacafb80d626eb8ef81262be504
                 "shasum": ""
             },
             "require": {
                 "brick/math": "^0.8 || ^0.9",
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 68c85c27e6396ea33da3a607a29ebf08f27d842e
                 "ext-ctype": "*",
-                "ext-json": "*",
-                "php": "^8.0",
-                "ramsey/collection": "^1.0"
-<<<<<<< HEAD
-=======
->>>>>>> 94a345bd1a316aacafb80d626eb8ef81262be504
                 "ext-json": "*",
                 "php": "^7.2 || ^8.0",
                 "ramsey/collection": "^1.0",
                 "symfony/polyfill-ctype": "^1.8",
                 "symfony/polyfill-php80": "^1.14"
-<<<<<<< HEAD
-=======
->>>>>>> cd5dff7 (From college)
-=======
->>>>>>> 68c85c27e6396ea33da3a607a29ebf08f27d842e
->>>>>>> 94a345bd1a316aacafb80d626eb8ef81262be504
             },
             "replace": {
                 "rhumsaa/uuid": "self.version"
@@ -2732,21 +2687,9 @@
             },
             "type": "library",
             "extra": {
-<<<<<<< HEAD
                 "branch-alias": {
                     "dev-main": "4.x-dev"
                 },
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                "branch-alias": {
-                    "dev-main": "4.x-dev"
-                },
->>>>>>> cd5dff7 (From college)
-=======
->>>>>>> 68c85c27e6396ea33da3a607a29ebf08f27d842e
->>>>>>> 94a345bd1a316aacafb80d626eb8ef81262be504
                 "captainhook": {
                     "force-install": true
                 }
@@ -2771,19 +2714,7 @@
             ],
             "support": {
                 "issues": "https://github.com/ramsey/uuid/issues",
-<<<<<<< HEAD
                 "source": "https://github.com/ramsey/uuid/tree/4.3.1"
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "source": "https://github.com/ramsey/uuid/tree/4.3.1"
-=======
-                "source": "https://github.com/ramsey/uuid/tree/4.2.3"
->>>>>>> cd5dff7 (From college)
-=======
-                "source": "https://github.com/ramsey/uuid/tree/4.3.1"
->>>>>>> 68c85c27e6396ea33da3a607a29ebf08f27d842e
->>>>>>> 94a345bd1a316aacafb80d626eb8ef81262be504
             },
             "funding": [
                 {
@@ -2795,20 +2726,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-
             "time": "2022-03-27T21:42:02+00:00"
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2022-03-27T21:42:02+00:00"
-=======
-            "time": "2021-09-25T23:10:38+00:00"
->>>>>>> cd5dff7 (From college)
-=======
-            "time": "2022-03-27T21:42:02+00:00"
->>>>>>> 68c85c27e6396ea33da3a607a29ebf08f27d842e
->>>>>>> 94a345bd1a316aacafb80d626eb8ef81262be504
         },
         {
             "name": "symfony/console",
@@ -7607,42 +7525,18 @@
         },
         {
             "name": "spatie/ignition",
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 68c85c27e6396ea33da3a607a29ebf08f27d842e
             "version": "1.2.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/ignition.git",
-                "reference": "2f059cf42b48f7c522efbba1c05ad59fc2c1a3f2"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spatie/ignition/zipball/2f059cf42b48f7c522efbba1c05ad59fc2c1a3f2",
                 "reference": "2f059cf42b48f7c522efbba1c05ad59fc2c1a3f2",
-<<<<<<< HEAD
-=======
->>>>>>> 94a345bd1a316aacafb80d626eb8ef81262be504
-            "version": "1.2.6",
+                "version": "1.2.6",
+                "shasum": ""
+            },
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/ignition.git",
                 "reference": "be24d33a9de271638314924b5da85e168e4148e4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/ignition/zipball/be24d33a9de271638314924b5da85e168e4148e4",
-                "reference": "be24d33a9de271638314924b5da85e168e4148e4",
-<<<<<<< HEAD
-=======
->>>>>>> cd5dff7 (From college)
-=======
->>>>>>> 68c85c27e6396ea33da3a607a29ebf08f27d842e
->>>>>>> 94a345bd1a316aacafb80d626eb8ef81262be504
-                "shasum": ""
             },
             "require": {
                 "ext-json": "*",
@@ -7698,19 +7592,7 @@
                     "type": "github"
                 }
             ],
-<<<<<<< HEAD
             "time": "2022-03-29T08:48:34+00:00"
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2022-03-29T08:48:34+00:00"
-=======
-            "time": "2022-03-23T11:02:14+00:00"
->>>>>>> cd5dff7 (From college)
-=======
-            "time": "2022-03-29T08:48:34+00:00"
->>>>>>> 68c85c27e6396ea33da3a607a29ebf08f27d842e
->>>>>>> 94a345bd1a316aacafb80d626eb8ef81262be504
         },
         {
             "name": "spatie/laravel-ignition",
@@ -7860,8 +7742,4 @@
     },
     "platform-dev": [],
     "plugin-api-version": "2.2.0"
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 94a345bd1a316aacafb80d626eb8ef81262be504
