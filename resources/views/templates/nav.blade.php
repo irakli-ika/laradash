@@ -5,4 +5,7 @@
     <li class="mx-1">
         <a href="{{ route('posts.create') }}" class="px-2 py-3 inline-block hover:text-sky-600 hover:underline">Create Post</a>
     </li>
+    <li class="mx-1">
+        <a href="{{ route('posts.trashed') }}" class="px-2 py-3 inline-block hover:text-sky-600 hover:underline">Trash</a>
+    </li>
 </ul>

@@ -2,9 +2,7 @@
 @section('title', 'Update')
 @section('content')
 @if (session()->has('message'))
-    <div class="absolute top-[50px] left-1/2 -translate-x-1/2 bg-green-100 rounded-lg py-5 px-6 mb-4 text-base text-green-700 mb-3" role="alert">
-        {{ session()->get('message') }}
-    </div>  
+    @include('templates.message')
 @endif
 <div class="block p-6 rounded-lg shadow-lg bg-white max-w-md mx-auto">
     <form action="{{ route('posts.update', $post)}}" method="POST">
