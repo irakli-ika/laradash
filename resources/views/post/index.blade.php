@@ -2,15 +2,12 @@
 @section('title', 'Home')
 @section('content')
 @if (session()->has('message'))
-    <div class="absolute top-[50px] left-1/2 -translate-x-1/2 bg-green-100 rounded-lg py-5 px-6 mb-4 text-base text-green-700 mb-3" role="alert">
+    <div class="absolute top-[50px] left-1/2 -translate-x-1/2 bg-green-100 rounded-lg py-5 px-6 mb-4 text-base text-green-700" role="alert">
         {{ session()->get('message') }}
     </div>
 @endif
     <div class="grid grid-cols-3 gap-5 mx-auto">
-        @if (count($posts) == 0)
-            <h2 class="text-2xl">No post yet.</h2>
-        @endif
-        @foreach ($posts as $post)
+        @forelse ($posts as $post)
             <div class="block p-6 rounded-lg shadow-lg bg-white">
                 <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">{{ $post->title }}</h5>
                 <p class="text-gray-700 text-base mb-4">{{ $post->description }}</p>
@@ -50,6 +47,8 @@
                     </form>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <h2 class="text-2xl">No post yet.</h2>
+        @endforelse
     </div>
 @endsection

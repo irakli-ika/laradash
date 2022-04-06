@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
+            $table->text('description');
+            $table->softDeletes();;
             $table->timestamps();
         });
     }
@@ -25,7 +26,7 @@ return new class extends Migration
      * Reverse the migrations.
      *
      * @return void
-     */
+     */ 
     public function down()
     {
         Schema::dropIfExists('posts');

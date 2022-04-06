@@ -17,7 +17,7 @@ class PostController extends Controller
         $posts = Post::all();
         $data = [ 'posts' => $posts ];
 
-        return view('pages.index', $data);
+        return view('post.index', $data);
     }
 
     /**
@@ -27,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('pages.create');
+        return view('post.create');
     }
 
     /**
@@ -50,7 +50,7 @@ class PostController extends Controller
 
         $post->save();
 
-        return redirect()->route('posts.index')->with('message', 'Post created successfuly');
+        return redirect()->route('posts.index')->with('message', 'Post created successfully');
     }
 
     /**
@@ -61,8 +61,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);
-        return view('pages.show', compact('post'));
+        $post = Post::findOrFail($id);
+        return view('post.show', compact('post'));
     }
 
     /**
@@ -73,8 +73,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
-        return view('pages.edit', compact('post'));
+        $post = Post::findOrFail($id);
+        return view('post.edit', compact('post'));
     }
 
     /**
@@ -86,11 +86,11 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
         $post -> title = $request->title;
         $post -> description = $request->description;
         $post->save();
-        return redirect()->route('posts.edit', $id)->with('message', 'Post updated successfuly');
+        return redirect()->route('posts.edit', $id)->with('message', 'Post updated successfully');
         
     }
 
@@ -106,6 +106,29 @@ class PostController extends Controller
 
         $post->delete();
 
-        return redirect()->back()->with('message', 'Post deleted successfuly');
+        return redirect()->route('posts.index')->with('message', 'Post deleted successfully');
+    }
+
+    public function trashed()
+    {
+        $posts = Post::onlyTrashed()->get();
+
+        return view('post.trash', compact('posts'));
+    }
+    
+    public function restore($id)
+    {
+        $post = Post::onlyTrashed()->findOrFail($id);
+        $post->restore();
+
+        return back()->with('message', 'Post restored successfully');
+    }
+
+    public function trashedDestroy($id)
+    {
+        $post = Post::onlyTrashed()->findOrFail($id);
+        $post->forceDelete();
+
+        return back()->with('message', 'Post deleted successfully');
     }
 }

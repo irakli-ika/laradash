@@ -13,9 +13,5 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
-<<<<<<< HEAD
         require('tailwindcss'),
-=======
-        //
->>>>>>> 94a345bd1a316aacafb80d626eb8ef81262be504
     ]);
