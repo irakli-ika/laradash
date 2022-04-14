@@ -20,3 +20,4 @@ Route::get('/', fn () => redirect()->route('posts.index'));
     Route::post('/posts/trashed/{id}/restore', [PostController::class, 'restore'])->name('posts.restore');
     Route::post('/posts/trashed/{id}/destroy', [PostController::class, 'trashedDestroy'])->name('posts.trashed.destroy');
     Route::resource('/posts', PostController::class);
+    

@@ -43,6 +43,8 @@ class PostController extends Controller
             'description'=> 'required',
         ]);
 
+        $fileName = uniqid() . '.' . $request->poster->extension();
+
         $post = new Post();
 
         $post -> title = $request->input('title');
