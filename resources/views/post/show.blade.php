@@ -29,5 +29,13 @@
                                 ease-in-out">Delete</button>
             </form>
         </div>
+        <ul class="bg-white rounded-lg w-96 text-gray-900">
+            @foreach ($post->comments as $comment)
+                <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg">
+                    <h3 class="font-bold">Author: {{ $comment->author }}</h3>
+                    {{ $comment->comment }}
+                </li>
+            @endforeach
+        </ul>
     </div>
 @endsection

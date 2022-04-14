@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\softDeletes;
 class Post extends Model
 {
     use HasFactory, softDeletes;
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

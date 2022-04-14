@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\has;
 use App\Models\Post;
 
 class PostController extends Controller
@@ -14,9 +15,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        // $posts = Post::all();
+        $posts = Post::with('comments')->get();
         $data = [ 'posts' => $posts ];
-
         return view('post.index', $data);
     }
 
@@ -41,16 +42,26 @@ class PostController extends Controller
         $request->validate([
             'title'=> 'required',
             'description'=> 'required',
+            'image'=> 'required'
         ]);
 
         $post = new Post();
+        // dd($request->images);
+        if (isset($request->image)) {
+            $fileName = uniqid() . '.' . $request->image->extension();
 
-        $post -> title = $request->title;
-        $post -> description = $request->description;
+            if ($request->image->move(public_path('images/poster'), $fileName)) {
+                $post -> title = $request->title;
+                $post -> description = $request->description;
+                $post -> image = $fileName;
+                
+                $post->save();
 
-        $post->save();
+                return redirect()->route('posts.index')->with('message', 'Post created successfully');
+            }
+        }
 
-        return redirect()->route('posts.index')->with('message', 'Post created successfully');
+        
     }
 
     /**
