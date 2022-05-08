@@ -2,12 +2,10 @@
 @section('title', 'Update')
 @section('content')
 @if (session()->has('message'))
-    <div class="absolute top-[50px] left-1/2 -translate-x-1/2 bg-green-100 rounded-lg py-5 px-6 mb-4 text-base text-green-700 mb-3" role="alert">
-        {{ session()->get('message') }}
-    </div>  
+    @include('templates.message')
 @endif
 <div class="block p-6 rounded-lg shadow-lg bg-white max-w-md mx-auto">
-    <form action="{{ route('posts.update', $post)}}" method="POST">
+    <form action="{{ route('posts.update', $post)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
         <div class="text-center">
@@ -69,7 +67,35 @@
             </div>
           @enderror
       </div>
-
+      <div class="flex justify-center">
+        <div class="mb-3 w-96">
+          <label for="formFile" class="form-label inline-block mb-2 text-gray-700">Upload image</label>
+          <input class="form-control
+          block
+          w-full
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-white bg-clip-padding
+          border border-solid border-gray-300
+          @error('image') border-red-500 @enderror
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="file"
+          id="image"
+          name="image">
+          @error('image')
+              <div class="text-red-500 text-sm">
+                    {{ $message }}
+              </div>
+          @enderror
+          <img class="rounded-t-lg mt-4" src="../../images/poster/{{ $post->image}}" alt=""/>
+        </div>
+      </div>
       <button type="submit" class="
         w-full
         px-6

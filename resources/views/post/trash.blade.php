@@ -2,13 +2,13 @@
 @section('title', 'Trash')
 @section('content')
 @if (session()->has('message'))
-    <div class="absolute top-[50px] left-1/2 -translate-x-1/2 bg-green-100 rounded-lg py-5 px-6 mb-4 text-base text-green-700" role="alert">
-        {{ session()->get('message') }}
-    </div>
+    @include('templates.message')
 @endif
     <div class="grid grid-cols-3 gap-5 mx-auto">
         @forelse ($posts as $post)
-            <div class="block p-6 rounded-lg shadow-lg bg-white">
+        <div class="rounded-lg shadow-lg bg-white max-w-sm">
+            <img class="rounded-t-lg" src="../images/poster/{{ $post->image}}" alt=""/>
+            <div class="p-6">
                 <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">{{ $post->title }}</h5>
                 <p class="text-gray-700 text-base mb-4">{{ $post->description }}</p>
                 <p class="text-gray-700 text-base mb-4">{{ $post->created_at }}</p>
@@ -39,6 +39,7 @@
                     </form>
                 </div>
             </div>
+        </div>
         @empty
             <h2 class="text-2xl">No post yet.</h2>
         @endforelse

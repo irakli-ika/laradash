@@ -56,34 +56,41 @@
         id="description"
         name="description"
         rows="3"
-        placeholder="Description"
-        value="{{ old('title') }}"></textarea>
+        placeholder="Description">{{ old('description') }}</textarea>
          @error('description')
             <div class="text-red-500 text-sm">
                 {{ $message }}
             </div>
           @enderror
       </div>
-      <div class="mb-3 w-96">
-        <label for="formFile" class="form-label inline-block mb-2 text-gray-700">Default file input example</label>
-        <input class="form-control
-        block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-        type="file" id="poster" name="poster">
+      <div class="flex justify-center">
+        <div class="mb-3 w-96">
+          <label for="formFile" class="form-label inline-block mb-2 text-gray-700">Upload image</label>
+          <input class="form-control
+          block
+          w-full
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-white bg-clip-padding
+          border border-solid border-gray-300
+          @error('image') border-red-500 @enderror
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="file"
+          id="image"
+          name="image">
+          @error('image')
+              <div class="text-red-500 text-sm">
+                    {{ $message }}
+              </div>
+          @enderror
+        </div>
       </div>
-
       <button type="submit" class="
         w-full
         px-6

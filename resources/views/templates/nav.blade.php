@@ -7,8 +7,9 @@
     </li>
     <li class="mx-1">
         <a href="{{ route('posts.trashed') }}" class="px-2 py-3 inline-block hover:text-sky-600 hover:underline">Trash</a>
-    </li>--}}
-    @foreach($menus as $menu)
+    </li> --}}
+
+    @foreach ($menus as $menu)
         <li class="mx-1">
             <a href="{{ route($menu->route)}}" class="px-2 py-3 inline-block hover:text-sky-600 hover:underline">{{ $menu->title }}</a>
         </li>

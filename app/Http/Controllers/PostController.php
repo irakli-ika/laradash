@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\has;
 use App\Models\Post;
+use File;
 
 class PostController extends Controller
 {
@@ -14,9 +16,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        // $posts = Post::all();
+        $posts = Post::with('comments')->get();
         $data = [ 'posts' => $posts ];
-
         return view('post.index', $data);
     }
 
@@ -41,18 +43,26 @@ class PostController extends Controller
         $request->validate([
             'title'=> 'required',
             'description'=> 'required',
+            'image'=> 'required'
         ]);
 
-        $fileName = uniqid() . '.' . $request->poster->extension();
-
         $post = new Post();
+        // dd($request->images);
+        if ($request->hasfile('image')) {
+            $fileName = uniqid() . '.' . $request->image->extension();
 
-        $post -> title = $request->input('title');
-        $post -> description = $request->input('description');
+            if ($request->image->move(public_path('images/poster'), $fileName)) {
+                $post -> title = $request->title;
+                $post -> description = $request->description;
+                $post -> image = $fileName;
+                
+                $post->save();
 
-        $post->save();
+                return redirect()->route('posts.index')->with('message', 'Post created successfully');
+            }
+        }
 
-        return redirect()->route('posts.index')->with('message', 'Post created successfully');
+        
     }
 
     /**
@@ -88,10 +98,24 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'title'=> 'required',
+            'description'=> 'required',
+        ]);
+
         $post = Post::findOrFail($id);
+        $fileName = null;
+        if ($request->hasfile('image')) {
+            if(File::exists(public_path("images/poster/$post->image"))) {
+                File::delete(public_path("images/poster/$post->image"));
+            }
+            $fileName = uniqid() . '.' . $request->image->extension();
+            $request->image->move(public_path('images/poster'), $fileName);
+        }
         $post -> title = $request->title;
         $post -> description = $request->description;
-        $post->save();
+        $fileName ? $post -> image = $fileName : '';
+        $post->update();
         return redirect()->route('posts.edit', $id)->with('message', 'Post updated successfully');
         
     }
@@ -129,6 +153,9 @@ class PostController extends Controller
     public function trashedDestroy($id)
     {
         $post = Post::onlyTrashed()->findOrFail($id);
+        if(File::exists(public_path("images/poster/$post->image"))) {
+            File::delete(public_path("images/poster/$post->image"));
+        }
         $post->forceDelete();
 
         return back()->with('message', 'Post deleted successfully');
