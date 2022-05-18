@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\softDeletes;
 
 class Post extends Model
 {
-    use HasFactory, softDeletes;
+    // use HasFactory, softDeletes;
+    use HasFactory;
 
     public function comments()
     {
